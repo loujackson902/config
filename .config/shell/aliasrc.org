@@ -1,0 +1,137 @@
+#+TITLE: AliasRC
+#+AUTHOR: Lou Sanus
+#+DESCRIPTION: AliasRC - My fork of Luke Smith's aliases provided in LARBS.
+#+PROPERTY: header-args :tangle aliasrc
+#+auto_tangle: t
+
+* TABLE OF CONTENTS :toc:
+- [[#neovim][NeoVim]]
+- [[#xinitrc][XinitRC]]
+- [[#skip-sudo][Skip Sudo]]
+- [[#colors][Colors]]
+- [[#shorthand][Shorthand]]
+- [[#custom-aliases][Custom Aliases]]
+- [[#chat][Chat]]
+- [[#git][Git]]
+- [[#docker][Docker]]
+- [[#pihole][Pihole]]
+
+* NeoVim
+  Use neovim for vim if present.
+    #+begin_src sh
+
+    [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+    #+end_src
+
+* XinitRC
+  Use $XINITRC variable if file exists.
+    #+begin_src sh
+
+    [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+    #+end_src
+
+* Skip Sudo
+  sudo not required for some system commands
+    #+begin_src sh
+
+    for command in mount umount sv pacman updatedb su ; do
+	    alias $command="sudo $command"
+    done; unset command
+
+    #+end_src
+
+* Colors
+     Colorize commands when possible.
+    #+begin_src sh
+
+    alias \
+	    ls="ls -hN --color=auto --group-directories-first" \
+	    grep="grep --color=auto" \
+	    diff="diff --color=auto" \
+	    ccat="highlight --out-format=ansi"
+
+    #+end_src
+
+* Shorthand
+  Verbosity and settings that you pretty much just always are going to want.
+    #+begin_src sh
+
+alias \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    rm="rm -vI" \
+    bc="bc -ql" \
+    mkd="mkdir -pv" \
+    yt="youtube-dl --add-metadata -i" \
+    yta="yt -x -f bestaudio/best" \
+    ffmpeg="ffmpeg -hide_banner" \
+    ka="killall" \
+    trem="transmission-remote" \
+    YT="youtube-viewer" \
+    sdn="sudo shutdown -h now" \
+    e="$EDITOR" \
+    v="$VISUAL" \
+    p="sudo pacman" \
+    z="zathura" \
+    magit="nvim -c MagitOnly" \
+    ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+    weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
+
+    #+end_src
+
+* Custom Aliases
+Not specified by default
+#+begin_src sh
+
+alias \
+la="ls -hA" \
+ll="ls -hl" \
+lla="ls -hAl" \
+s="sudo systemctl" \
+j="sudo journalctl -xe" \
+jf="sudo journalctl -fe" \
+lynx="lynx https://duckduckgo.com" \
+kee="keepassxc-cli open $HOME/documents/kee/.things.old.kdbx -k $HOME/documents/kee/.foxy.key" \
+build_grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
+emacsd="emacs --daemon"\
+emacsc="emacsclient -c -a emacs" \
+rsync="rsync -abuvP" \
+timeshift="sudo timeshift-gtk" \
+fusermount="fusermount3" \
+mutt="neomutt" \
+nmutt="neomutt"
+#+end_src
+
+* Chat
+Log me in to that chat service nice and quick-like
+#+begin_src sh
+
+alias \
+	chat='profanity -a benny@uofc.xyz' \
+
+#+end_src
+* Git
+Shorthand for dealing with git bare repos
+#+begin_src sh
+
+alias \
+    dotfiles="/usr/bin/git --git-dir=$HOME/git/dotfiles.git/ --work-tree=$HOME" \
+    config="/usr/bin/git --git-dir=$HOME/git/config.git/ --work-tree=$HOME" \
+    gpush="git push" \
+    gpull="git pull" \
+    gs="git status" \
+    gb="git branch" \
+    gc="git checkout"
+#+end_src
+
+* Docker
+Docker commands are too damn long. Shorten 'em up.
+
+* Pihole
+Pi-Hole docker commands are wayyyyyy too damn long. Shorten those up too.
+#+begin_src sh
+alias \
+    dockera="sudo docker exec -it pihole bash"
+#+end_src

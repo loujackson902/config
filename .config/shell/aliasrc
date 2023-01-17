@@ -1,0 +1,67 @@
+    [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+    [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+    for command in mount umount sv pacman updatedb su ; do
+	    alias $command="sudo $command"
+    done; unset command
+
+    alias \
+	    ls="ls -hN --color=auto --group-directories-first" \
+	    grep="grep --color=auto" \
+	    diff="diff --color=auto" \
+	    ccat="highlight --out-format=ansi"
+
+alias \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    rm="rm -vI" \
+    bc="bc -ql" \
+    mkd="mkdir -pv" \
+    yt="youtube-dl --add-metadata -i" \
+    yta="yt -x -f bestaudio/best" \
+    ffmpeg="ffmpeg -hide_banner" \
+    ka="killall" \
+    trem="transmission-remote" \
+    YT="youtube-viewer" \
+    sdn="sudo shutdown -h now" \
+    e="$EDITOR" \
+    v="$VISUAL" \
+    p="sudo pacman" \
+    z="zathura" \
+    magit="nvim -c MagitOnly" \
+    ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+    weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
+
+alias \
+la="ls -hA" \
+ll="ls -hl" \
+lla="ls -hAl" \
+s="sudo systemctl" \
+j="sudo journalctl -xe" \
+jf="sudo journalctl -fe" \
+lynx="lynx https://duckduckgo.com" \
+kee="keepassxc-cli open $HOME/documents/kee/.things.old.kdbx -k $HOME/documents/kee/.foxy.key" \
+build_grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
+emacsd="emacs --daemon"\
+emacsc="emacsclient -c -a emacs" \
+rsync="rsync -abuvP" \
+timeshift="sudo timeshift-gtk" \
+fusermount="fusermount3" \
+mutt="neomutt" \
+nmutt="neomutt"
+
+alias \
+	chat='profanity -a benny@uofc.xyz' \
+
+alias \
+    dotfiles="/usr/bin/git --git-dir=$HOME/git/dotfiles.git/ --work-tree=$HOME" \
+    config="/usr/bin/git --git-dir=$HOME/git/config.git/ --work-tree=$HOME" \
+    gpush="git push" \
+    gpull="git pull" \
+    gs="git status" \
+    gb="git branch" \
+    gc="git checkout"
+
+alias \
+    dockera="sudo docker exec -it pihole bash"

@@ -1,0 +1,93 @@
+add_newline = false
+
+[character]
+error_symbol = "[✖](bold red) "
+
+[cmd_duration]
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " [$duration]($style)"
+
+[directory]
+truncation_length = 5
+format = " [$path]($style)[$lock_symbol]($lock_style) "
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = "🌱"
+style = "bold yellow"
+disabled = false
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_metrics]
+added_style = ""
+deleted_style = ""
+format = '[+$added]($added_style)/[-$deleted]($deleted_style)'
+disabled = false
+
+
+[git_status]
+conflicted = "⚔️ "
+up_to_date = "✔️  ×${count}"
+ahead = "🏎️ 💨 ×${count}"
+behind = "🐢 ×${count}"
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
+untracked = "🛤️  ×${count}"
+stashed = "📦 "
+modified = "📝 ×${count}"
+staged = "🗃️  ×${count}"
+renamed = "📛 ×${count}"
+deleted = "🗑️  ×${count}"
+style = "bright-white"
+format = "$all_status$ahead_behind"
+disabled = false
+
+[hostname]
+ssh_only = true
+format = "[$hostname]($style)"
+trim_at = "-"
+style = "bold dimmed red"
+disabled = false
+
+[memory_usage]
+format = "$symbol[${ram}]($style) "
+threshold = 80
+style = "bold dimmed white"
+disabled = false
+
+[package]
+disabled = false
+
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[shell]
+bash_indicator = "bsh"
+fish_indicator = "fsh"
+zsh_indicator = "zsh"
+powershell_indicator = "psh"
+unknown_indicator = "mystery shell"
+format = "[$indicator]($style)"
+disabled = false
+
+[time]
+time_format = "%T"
+format = "$time($style) "
+style = "dimmed green"
+disabled = false
+
+[username]
+style_root = "bold red"
+style_user = "bold dimmed blue"
+format = "user: [$user]($style)"
+show_always = true
+disabled = false
+
+[jobs]
+symbol = "🐫"
+number_threshold = 2
+symbol_threshold = 1
+disabled = false

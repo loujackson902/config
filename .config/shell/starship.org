@@ -1,0 +1,211 @@
+#+TITLE: Starship Config
+#+AUTHOR: Lou Sanus
+#+DESCRIPTION: Starship Prompt Config.
+#+PROPERTY: header-args :tangle starship.toml
+#+auto_tangle: t
+
+* TABLE OF CONTENTS :toc:
+- [[#about-config][ABOUT CONFIG:]]
+- [[#new-line][NEW LINE]]
+- [[#character][CHARACTER]]
+- [[#command-duration][COMMAND DURATION]]
+- [[#directory][DIRECTORY]]
+- [[#git][GIT]]
+- [[#hostname][HOSTNAME]]
+- [[#memory-usage][MEMORY USAGE]]
+- [[#package][PACKAGE]]
+- [[#python][PYTHON]]
+- [[#shell][SHELL]]
+- [[#time][TIME]]
+- [[#username][USERNAME]]
+- [[#jobs][JOBS]]
+
+* ABOUT CONFIG:
+My Starship Prompt config written in Org mode. I forked this config from a random github repo
+then converted to an Org document.
+
+* NEW LINE
+Prompt displays in two rows.
+
+#+begin_src rust
+
+add_newline = false
+
+#+end_src
+
+* CHARACTER
+Prompt will display an emoji when encountering an error.
+
+#+begin_src rust
+
+[character]
+error_symbol = "[✖](bold red) "
+
+#+end_src
+
+* COMMAND DURATION
+Display the total amount of time taken to execute a command upon completion.
+
+#+begin_src rust
+
+[cmd_duration]
+min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
+format = " [$duration]($style)"
+
+#+end_src
+
+* DIRECTORY
+Display current working directory.
+
+#+begin_src rust
+
+[directory]
+truncation_length = 5
+format = " [$path]($style)[$lock_symbol]($lock_style) "
+
+#+end_src
+
+* GIT
+Display various git related information.
+
+#+begin_src rust
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = "🌱"
+style = "bold yellow"
+disabled = false
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_metrics]
+added_style = ""
+deleted_style = ""
+format = '[+$added]($added_style)/[-$deleted]($deleted_style)'
+disabled = false
+
+
+[git_status]
+conflicted = "⚔️ "
+up_to_date = "✔️  ×${count}"
+ahead = "🏎️ 💨 ×${count}"
+behind = "🐢 ×${count}"
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
+untracked = "🛤️  ×${count}"
+stashed = "📦 "
+modified = "📝 ×${count}"
+staged = "🗃️  ×${count}"
+renamed = "📛 ×${count}"
+deleted = "🗑️  ×${count}"
+style = "bright-white"
+format = "$all_status$ahead_behind"
+disabled = false
+
+#+end_src
+
+* HOSTNAME
+Display name of host machine ONLY if connected through SSH.
+
+#+begin_src rust
+
+[hostname]
+ssh_only = true
+format = "[$hostname]($style)"
+trim_at = "-"
+style = "bold dimmed red"
+disabled = false
+
+#+end_src
+
+* MEMORY USAGE
+Display memory usage if above 80%
+
+#+begin_src rust
+
+[memory_usage]
+format = "$symbol[${ram}]($style) "
+threshold = 80
+style = "bold dimmed white"
+disabled = false
+
+#+end_src
+
+* PACKAGE
+Not sure what this does to be honest, but it's enabled.
+
+#+begin_src rust
+
+[package]
+disabled = false
+
+#+end_src
+
+* PYTHON
+Display an emoji when working with Python scripts.
+
+#+begin_src rust
+
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+#+end_src
+
+* SHELL
+Display shell information.
+
+#+begin_src rust
+
+[shell]
+bash_indicator = "bsh"
+fish_indicator = "fsh"
+zsh_indicator = "zsh"
+powershell_indicator = "psh"
+unknown_indicator = "mystery shell"
+format = "[$indicator]($style)"
+disabled = false
+
+#+end_src
+
+* TIME
+Display time information.
+
+#+begin_src rust
+
+[time]
+time_format = "%T"
+format = "$time($style) "
+style = "dimmed green"
+disabled = false
+
+#+end_src
+
+* USERNAME
+Display user information.
+
+#+begin_src rust
+
+[username]
+style_root = "bold red"
+style_user = "bold dimmed blue"
+format = "user: [$user]($style)"
+show_always = true
+disabled = false
+
+#+end_src
+
+* JOBS
+Display a little camel when tasks are sent to the background.
+Display numbers when minimized tasks exceeds the defined threshold.
+
+#+begin_src rust
+
+[jobs]
+symbol = "🐫"
+number_threshold = 2
+symbol_threshold = 1
+disabled = false
+
+#+end_src
