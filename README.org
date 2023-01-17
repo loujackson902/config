@@ -1,0 +1,10 @@
+#+TITLE: Configs
+#+DESCRIPTION: Tracking my shell configs for demonstrative purposes.
+
+* Shell
+My preferred user Shell is ZSH.
+If Starship is present on the system it is evaluated in the zshrc file for a fancy prompt.
+
+I have taken many of my configs from LukeSmith, and DistroTube, then modified them to my preferences.
+
+Not everything is well documented but perhaps that will change in the future.
