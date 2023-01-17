@@ -52,7 +52,7 @@ mutt="neomutt" \
 nmutt="neomutt"
 
 alias \
-	chat='profanity -a benny@uofc.xyz' \
+	chat='profanity -a' \
 
 alias \
     dotfiles="/usr/bin/git --git-dir=$HOME/git/dotfiles.git/ --work-tree=$HOME" \

@@ -109,7 +109,7 @@ Log me in to that chat service nice and quick-like
 #+begin_src sh
 
 alias \
-	chat='profanity -a benny@uofc.xyz' \
+	chat='profanity -a' \
 
 #+end_src
 * Git
