@@ -1,7 +1,7 @@
 #+TITLE: AliasRC
 #+AUTHOR: Lou Sanus
 #+DESCRIPTION: AliasRC - My fork of Luke Smith's aliases provided in LARBS.
-#+PROPERTY: header-args :tangle aliasrc
+#+PROPERTY: header-args :tangle /home/benny/.aliasrc
 #+auto_tangle: t
 
 * TABLE OF CONTENTS :toc:
@@ -14,7 +14,9 @@
 - [[#chat][Chat]]
 - [[#git][Git]]
 - [[#docker][Docker]]
+- [[#pacman][Pacman]]
 - [[#pihole][Pihole]]
+- [[#xfce][xfce]]
 
 * NeoVim
   Use neovim for vim if present.
@@ -71,8 +73,8 @@ alias \
     trem="transmission-remote" \
     YT="youtube-viewer" \
     sdn="sudo shutdown -h now" \
-    e="$EDITOR" \
-    v="$VISUAL" \
+    e="emacsclient -c -a emacs" \
+    v="nvim" \
     p="sudo pacman" \
     z="zathura" \
     magit="nvim -c MagitOnly" \
@@ -93,15 +95,16 @@ s="sudo systemctl" \
 j="sudo journalctl -xe" \
 jf="sudo journalctl -fe" \
 lynx="lynx https://duckduckgo.com" \
-kee="keepassxc-cli open $HOME/documents/kee/.things.old.kdbx -k $HOME/documents/kee/.foxy.key" \
+kee="keepassxc-cli open $HOME/documents/kee/dbs/things.kdbx -k $HOME/documents/kee/keez/.foxy.key" \
 build_grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
-emacsd="emacs --daemon"\
+emacsd="emacs --bg-daemon"\
 emacsc="emacsclient -c -a emacs" \
 rsync="rsync -abuvP" \
 timeshift="sudo timeshift-gtk" \
 fusermount="fusermount3" \
 mutt="neomutt" \
-nmutt="neomutt"
+nmutt="neomutt" \
+df="df -hk"
 #+end_src
 
 * Chat
@@ -129,9 +132,24 @@ alias \
 * Docker
 Docker commands are too damn long. Shorten 'em up.
 
+* Pacman
+
+#+begin_src sh
+
+alias \
+    pq="p -Syu --noconfirm"
+#+end_src
+
 * Pihole
 Pi-Hole docker commands are wayyyyyy too damn long. Shorten those up too.
 #+begin_src sh
 alias \
     dockera="sudo docker exec -it pihole bash"
+#+end_src
+
+* xfce
+A more simplistic command for initializing xfce
+#+begin_src sh
+alias \
+    xfce="startxfce4"
 #+end_src

@@ -13,6 +13,7 @@ unsetopt PROMPT_SP
 # Default programs:
 export BROWSER="brave"
 export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
 # export VISUAL="nvim"
 export VISUAL="emacsclient -c"
 export TERMINAL="st"

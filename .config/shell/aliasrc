@@ -25,8 +25,8 @@ alias \
     trem="transmission-remote" \
     YT="youtube-viewer" \
     sdn="sudo shutdown -h now" \
-    e="$EDITOR" \
-    v="$VISUAL" \
+    e="emacsclient -c -a emacs" \
+    v="nvim" \
     p="sudo pacman" \
     z="zathura" \
     magit="nvim -c MagitOnly" \
@@ -41,15 +41,16 @@ s="sudo systemctl" \
 j="sudo journalctl -xe" \
 jf="sudo journalctl -fe" \
 lynx="lynx https://duckduckgo.com" \
-kee="keepassxc-cli open $HOME/documents/kee/.things.old.kdbx -k $HOME/documents/kee/.foxy.key" \
+kee="keepassxc-cli open $HOME/documents/kee/things.kdbx -k $HOME/documents/kee/.foxy.key" \
 build_grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
-emacsd="emacs --daemon"\
+emacsd="emacs --bg-daemon"\
 emacsc="emacsclient -c -a emacs" \
 rsync="rsync -abuvP" \
 timeshift="sudo timeshift-gtk" \
 fusermount="fusermount3" \
 mutt="neomutt" \
-nmutt="neomutt"
+nmutt="neomutt" \
+df="df -hk"
 
 alias \
 	chat='profanity -a' \
@@ -62,6 +63,9 @@ alias \
     gs="git status" \
     gb="git branch" \
     gc="git checkout"
+
+alias \
+    pq="p -Syu --noconfirm"
 
 alias \
     dockera="sudo docker exec -it pihole bash"
